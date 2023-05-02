@@ -1,9 +1,15 @@
-def example_faction(func):
+import time
+def time_fuction(func):
     def wrapper(*args , **kwargs):
-        finish = func(*args , **kwargs) + 10
-        return finish
+        start_time = time.time()
+        rezult = func(*args  , **kwargs)
+        end_time = time.time()
+        print("Час виконання функції:" , round(end_time - start_time , 2))
+        return rezult
     return wrapper
-@example_faction
-def rezult(args):
-    return args
-print('Результат:' , rezult(13))
+
+@time_fuction
+def example_function(x):
+    time.sleep(1)
+    return x
+print(example_function("Hello Pypsik"))
